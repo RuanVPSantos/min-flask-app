@@ -9,8 +9,8 @@ services:
             - "traefik.http.routers.minflask.entrypoints=websecure"
             - "traefik.http.routers.minflask.tls.certresolver=myresolver"
             - "traefik.http.services.minflask.loadbalancer.server.port=${PORT:-4999}"
-        # networks:
-        #     - proxy
+        networks:
+            - proxy
         
         environment:
             - PORT=${PORT:-4999}
@@ -18,6 +18,6 @@ services:
         ports:
             - "${PORT:-4999}:${PORT:-4999}"
         
-# networks:
-#     proxy:
-#         external: true
+networks:
+    proxy:
+        external: true
