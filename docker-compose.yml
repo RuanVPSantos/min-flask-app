@@ -19,4 +19,6 @@ services:
             - "${PORT:-4999}:${PORT:-4999}"
         
 networks:
-    - traefik_proxy
+    traefik_proxy:
+        external: true
+        
